@@ -5,7 +5,7 @@ Welcome to the C3 Voice Assistant, a cutting-edge frontend module designed for e
 ## Demo Features
 - **Voice Activation**: Just say "C3" to activate the assistant.
 - **General Queries**: Ask any question as you would with a standard LLM.
-- **Document-Based Responses (RAG)**: Get answers related to specific documents. Currently supports queries about Nvidia's FYE 2023 10K report.
+- **Document-Based Responses (RAG)**: Get answers related to specific documents. Current deployment supports queries about Nvidia's FYE 2023 10K report. You can choose to have multiple documents loaded as required.
 - **Accessibility Focused**: Ideal for users requiring voice-based interaction.
 - **Vercel Deployment**: Check out the production version on Vercel.
 
