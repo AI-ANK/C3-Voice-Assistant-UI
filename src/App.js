@@ -93,7 +93,7 @@ const App = () => {
               {
                 role: "user",
                 content:
-                  "You are an AI voice assistant called C3. You can provide information on a wide range of topics. You can also answer basic questions about the Nvidia 10k report for year ended Jan 2023" +
+                  "You are an AI voice assistant called C3. You can provide any general information as well as answer basic questions about the Nvidia 10k report for year ended Jan 2023" +
                   text,
               },
             ],
