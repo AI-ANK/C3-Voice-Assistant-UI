@@ -1,4 +1,4 @@
-# C3 Voice Assistant: Accessible LLM Frontend for Everyone
+# C3 Voice Assistant: Accessible LLM Apps for Everyone
 
 Welcome to the C3 Voice Assistant, a cutting-edge frontend module designed for ease of use and accessibility. This project emphasizes making Large Language Models (LLMs) accessible to all, including those with limitations in typing or other accessibility challenges.
 
