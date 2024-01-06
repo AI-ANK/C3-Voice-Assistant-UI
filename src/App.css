@@ -56,7 +56,6 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor;
-      0 0 40px #2ecc71;
   }
   
   .listening-indicator {
