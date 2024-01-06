@@ -48,4 +48,4 @@ Your insights and contributions are welcome. Feel free to raise issues or submit
 ## Acknowledgements
 Developed by Harshad Suryawanshi. If you find this project helpful, consider giving it a ⭐ on GitHub!
 
-[View the Live Demo]()
+[View the Live Demo](https://c3-ui.vercel.app/)
