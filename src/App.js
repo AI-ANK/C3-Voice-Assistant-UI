@@ -11,17 +11,13 @@ const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  const [showSpeechBubble, setShowSpeechBubble] = useState(false);
+  const [speechBubbleTimeout, setSpeechBubbleTimeout] = useState(3000); // Duration in milliseconds
+
+  const [showSpinner, setShowSpinner] = useState(false);
+
   const handleStop = () => {
-    if (recognitionRef.current && recognitionRef.current.stop) {
-      recognitionRef.current.stop();
-    }
-    if (synthRef.current && synthRef.current.speaking) {
-      synthRef.current.cancel();
-    }
-    setAppState("idle");
-    if (wakeWordRecognitionRef.current) {
-      wakeWordRecognitionRef.current.start(); // Restart wake word listener after speaking
-    }
+    window.location.reload(); // Reloads the current page
   };
 
   const toggleRecording = () => {
@@ -72,10 +68,14 @@ const App = () => {
         const transcriptResult = event.results[lastResultIndex][0].transcript;
         setTranscript(transcriptResult);
         setAppState("playing");
+        setShowSpeechBubble(true);
+        setTimeout(() => setShowSpeechBubble(false), speechBubbleTimeout);
         fetchResponseFromLLM(transcriptResult);
       };
 
       recognitionRef.current.onend = () => {
+        console.log("end recognition");
+        setShowSpinner(true);
         // Optional: Handle end of recognition
       };
     }
@@ -89,7 +89,14 @@ const App = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            messages: [{ role: "user", content: text }],
+            messages: [
+              {
+                role: "user",
+                content:
+                  "You are an AI voice assistant called C3. You can provide information on a wide range of topics. You can also answer basic questions about the Nvidia 10k report for year ended Jan 2023" +
+                  text,
+              },
+            ],
           }),
         }
       );
@@ -120,6 +127,11 @@ const App = () => {
         //console.log(utterance.voice.name);
       }
 
+      utterance.onstart = () => {
+        console.log("TTS starts speaking");
+        setShowSpinner(false);
+      };
+
       utterance.onend = () => {
         setAppState("idle");
         if (wakeWordRecognitionRef.current) {
@@ -132,6 +144,9 @@ const App = () => {
 
   return (
     <div className="container">
+      <div className={`speech-bubble ${showSpeechBubble ? "visible" : ""}`}>
+        {transcript}
+      </div>
       <div className={`app-state-indicator ${appState}`}>
         <div className="listening-indicator">
           {appState !== "idle" && (
@@ -145,16 +160,16 @@ const App = () => {
         {appState === "listening" && (
           <div className="listening-bubble">You can speak now...</div>
         )}
-
         <button
           className={`record-btn ${appState}`}
           onClick={toggleRecording}
           disabled={appState !== "idle"}
-        ></button>
-        <button className="stop-btn" onClick={handleStop}>
-          Stop
+        >
+          {showSpinner && <div className="spinner"></div>}
         </button>
-        <p className="transcript">Transcript: {transcript}</p>
+        <button className="stop-btn" onClick={handleStop}>
+          Reset
+        </button>
       </div>
       <div className={`chat-sidebar ${isChatOpen ? "open" : ""}`}>
         <div className="chat-content">
