@@ -270,7 +270,7 @@
   }
   .speech-bubble {
     position: absolute;
-    top: 120px; /* Adjust as needed */
+    bottom: 120px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     background-color: #00ff9d; /* Neon green */
