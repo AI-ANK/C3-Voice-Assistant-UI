@@ -195,7 +195,7 @@ const App = () => {
       </button>
       <footer className="app-footer">
         Created by{" "}
-        <a href="https://www.linkedin.com/in/harshadsuryawanshi/">Harshad</a>
+        <a href="https://www.linkedin.com/in/harshadsuryawanshi/">Harshad Suryawanshi</a>
       </footer>
     </div>
   );
