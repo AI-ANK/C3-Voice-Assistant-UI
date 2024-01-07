@@ -193,6 +193,10 @@ const App = () => {
       <button className="chat-toggle-button" onClick={toggleChat}>
         {isChatOpen ? "<" : ">"}
       </button>
+      <footer className="app-footer">
+        Created by{" "}
+        <a href="https://www.linkedin.com/in/harshadsuryawanshi/">Harshad</a>
+      </footer>
     </div>
   );
 };

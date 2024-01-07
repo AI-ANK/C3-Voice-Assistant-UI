@@ -306,3 +306,27 @@
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
+
+  .app-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    color: #3498db; /* Adjust color as needed */
+    z-index: 20; /* Adjust as needed */
+    text-shadow: 0 0 2px #3498db, 0 0 2px #3498db; /* Glow effect for readability */
+  }
+  
+  .app-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #3498db; /* Adjust color as needed */
+    z-index: 20; /* Adjust as needed */
+  }
+  
+  .app-subtext {
+    color: white;
+  }
+  
