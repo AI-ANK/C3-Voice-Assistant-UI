@@ -147,7 +147,7 @@ const App = () => {
       <div class="app-header">
           <h1>C3 AI</h1>
           <p class="app-subtext">
-            Ask me anything, or get specific insights from the Nvidia FYE 2023 10K
+            Ask me anything, or get specific insights from the Nvidia FY 2023 10K
             report.
           </p>
           <p class="app-subtext">Just say 'C3' to activate me!</p>
